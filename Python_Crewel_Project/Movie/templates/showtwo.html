@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国电影历年平均票房折线图</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+</head>
+<body>
+     <div id = "main" style = "width:1300px; height:500px; background-color:pink"></div>
+     <script>
+      var main = echarts.init(document.getElementById("main"))
+        option = {
+          xAxis: {
+            type: 'category',
+            data: {{data1}}
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [
+            {
+              data: {{data2}},
+              type: 'line'
+            }
+          ]
+        };
+       main.setOption(option)
+      </script>
+</body>
+</html>

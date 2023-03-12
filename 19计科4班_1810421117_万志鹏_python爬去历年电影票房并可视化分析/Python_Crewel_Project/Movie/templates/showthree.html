@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中国历年票房彩色饼状图</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.common.min.js"></script>
+</head>
+<body>
+    <div id = "main" style = "width:1000px; height:600px; background-color:pink"></div>
+    <script>
+        var main = echarts.init(document.getElementById("main"))
+        //配置
+        option = {
+              legend: {
+                top: 'bottom'
+              },
+              toolbox: {
+                show: true,
+                feature: {
+                  mark: { show: true },
+                  dataView: { show: true, readOnly: false },
+                  restore: { show: true },
+                  saveAsImage: { show: true }
+                }
+              },
+              series: [
+                {
+                  name: 'Nightingale Chart',
+                  type: 'pie',
+                  radius: [50, 250],
+                  center: ['50%', '50%'],
+                  roseType: 'area',
+                  itemStyle: {
+                    borderRadius: 8
+                  },
+                  data:
+                      {{data|tojson}}
+                }
+              ]
+            };
+        main.setOption(option)
+    </script>
+</body>
+</html>
